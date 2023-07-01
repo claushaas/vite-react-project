@@ -1,3 +1,9 @@
+import styled from 'styled-components';
+
+const H1 = styled.h1`
+  color: ${(props) => (props.color ? props.color : props.theme.main)};
+`;
+
 const user = {
   name: 'Claus',
   lastName: 'Haas',
@@ -5,11 +11,11 @@ const user = {
 
 function Header() {
   return (
-    <h1>
+    <H1>
       Olá,
       {' '}
       {`${user.name} ${user.lastName}`}
-    </h1>
+    </H1>
   );
 }
 
