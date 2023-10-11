@@ -24,9 +24,9 @@ function App() {
   const [formValues, setFormValues] = useState<FormValuesTypes>(initialFormValues);
   const { fullName, email, CPF, term, state } = formValues;
 
-  function handleChange(
+  const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
-  ) {
+  ) => {
     const { name, type } = event.target;
     const value = type === 'checkbox'
       ? (event.target as HTMLInputElement).checked
@@ -35,7 +35,9 @@ function App() {
       ...formValues,
       [name]: value,
     });
-  }
+
+    const inProgressRecipes = Json.parse(localStorage.getItem('inProgressRecipes'));
+  };
 
   return (
     <>
